@@ -2,12 +2,6 @@ Numerical Interpolation
 
 This repository contains Python implementations of various numerical interpolation methods, including Neville's method, Newton's forward difference, divided difference method for Hermite interpolation, and cubic spline interpolation.
 
-Requirements
-
-Ensure you have Python installed along with the required package:
-
-pip install numpy
-
 Repository Structure
 
 |-- src/
@@ -27,9 +21,13 @@ Clone the repository:
 git clone https://github.com/yourusername/cot-4500-as2.git
 cd cot-4500-as2/src/main
 
+Navigate to the directory
+cd cot-4500-as2
+
 Install the required dependencies:
 
 pip install -r requirements.txt
+
 
 Run the main script:
 
