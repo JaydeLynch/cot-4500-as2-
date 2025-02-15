@@ -113,4 +113,5 @@ print(A)
 print("Vector b:")
 print(b)
 print("Vector c:")
-print(c)}
+print(c)
+
