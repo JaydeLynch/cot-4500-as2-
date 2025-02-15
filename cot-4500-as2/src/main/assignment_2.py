@@ -1,3 +1,4 @@
+
 import numpy as np
 
 # Neville's method for polynomial interpolation
@@ -23,9 +24,14 @@ def newton_forward(x, y, target):
         for j in range(1, i + 1):
             F[i, j] = (F[i, j - 1] - F[i - 1, j - 1]) / (x[i] - x[i - j])
 
+    # Print coefficients for x^1, x^2, and x^3
+    print(F[1, 1])  # Coefficient for x^1
+    print(F[2, 2])  # Coefficient for x^2
+    print(F[3, 3])  # Coefficient for x^3
+
     # Evaluate the polynomial at the target point
-    result = 0
-    for i in range(n):
+    result = F[0, 0]
+    for i in range(1, n):
         term = F[i, i]
         for j in range(i):
             term *= (target - x[j])
@@ -97,8 +103,8 @@ if __name__ == "__main__":
     x2 = [7.2, 7.4, 7.5, 7.6]
     y2 = [23.5492, 25.3913, 26.8224, 27.4589]
     target2 = 7.3
+    print("\nQuestion 2:")
     result2 = newton_forward(x2, y2, target2)
-    print(f"Question 2: {result2}")
 
     # Question 3: Approximate f(7.3)
     result3 = newton_forward(x2, y2, 7.3)
