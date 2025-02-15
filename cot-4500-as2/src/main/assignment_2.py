@@ -49,10 +49,13 @@ def divided_difference(x, y, y_prime):
     # Compute divided differences
     for i in range(2, 2 * n):
         for j in range(2, i + 1):
-            F[i, j] = (F[i, j - 1] - F[i - 1, j - 1]) / (F[i, 0] - F[i - j + 1, 0])
+            if F[i, 0] == F[i - j + 1, 0]:  # Handle repeated x values
+                F[i, j] = y_prime[i // 2] if j == 2 else F[i, j - 1] / (j - 1)
+            else:
+                F[i, j] = (F[i, j - 1] - F[i - 1, j - 1]) / (F[i, 0] - F[i - j + 1, 0])
 
     return F
-
+    
 # Cubic spline interpolation
 def cubic_spline(x, y):
     n = len(x)
